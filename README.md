@@ -31,3 +31,11 @@ npm test
 CI
 
 On push to `main` GitHub Actions runs the `nodejs-ci` workflow which installs dependencies and runs tests.
+
+Live site (GitHub Pages)
+
+If Pages deployment runs successfully, your site will be available at:
+
+https://awwaladeyemo.github.io/Portfolio/
+
+Note: GitHub Pages may need a minute after the workflow completes to enable the site. Check the repository Settings → Pages for the published site URL and any additional configuration.
