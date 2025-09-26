@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (gh-pages branch)
 
 on:
   push:
@@ -6,22 +6,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload artifact for deployment
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # publish only the single static file (index.html) to keep deployment simple
-          path: index.html
+      - name: Prepare public folder
+        run: |
+          rm -rf public || true
+          mkdir public
+          # copy only the files we want to publish
+          cp index.html public/
+          # include any static assets if present
+          if [ -d static ]; then cp -r static public/; fi
+          ls -la public
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # the branch the action should deploy to
+          folder: public   # the folder the action should deploy
+          token: ${{ secrets.GITHUB_TOKEN }}
