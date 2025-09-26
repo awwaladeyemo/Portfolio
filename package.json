@@ -1,0 +1,13 @@
+{
+  "name": "co-pilot-site-tests",
+  "version": "1.0.0",
+  "description": "Tests for index.html",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "jsdom": "^22.1.0"
+  }
+}
