@@ -2,6 +2,9 @@
 
 This repo contains a simple `index.html` that describes my cloud learning, projects, certifications, and a small Jest test suite plus a GitHub Actions workflow.
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Portfolio-blue)](https://awwaladeyemo.github.io/Portfolio/)
+
+
 How to push to GitHub (quick)
 1. Open PowerShell in this folder.
 2. Option A — run the helper script (it will prompt for repo/user):
